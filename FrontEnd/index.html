@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="MeltIron.js"></script>
 </head>
 
 <body>
@@ -20,7 +21,10 @@
         <h2>Ajouter au stock</h2>
         <input type="number" id="ferInput" placeholder="kg de fer">
         <input type="number" id="charbonInput" placeholder="kg de charbon">
-        <button id="ajouterStock">Ajouter</button>
+        <div class="button-row">
+            <button id="ajouterStockIron">Ajouter</button>
+            <button id="ajouterStockCoal">Ajouter</button>
+        </div>
     </div>
 
     <div id="fonderie">

@@ -1,0 +1,39 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_28-31e2af992ac1d18e1d2fae029560f6709d6969ac",
+  "solcVersion": "0.8.28",
+  "solcLongVersion": "0.8.28+commit.7893614a",
+  "userSourceNameMap": {
+    "contracts/MeltIron.sol": "project/contracts/MeltIron.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "cancun",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/MeltIron.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract MeltIron {\r\n    uint256 stockIron;\r\n    uint256 stockCoal;\r\n    uint256 stockMeltedIron;\r\n\r\n    event addIron(uint256 quantite, uint256 nouveauStock);\r\n    event addCoal(uint256 quantite, uint256 nouveauStock);\r\n\r\n    constructor() {\r\n        stockIron = 0;\r\n        stockCoal = 0;\r\n        stockMeltedIron = 0;\r\n    }\r\n\r\n    function ajouterFer(uint256 quantite) public {\r\n        require(quantite > 0, \"La quantite doit etre positive\");\r\n        stockIron += quantite;\r\n        emit addIron(quantite, stockIron);\r\n    }\r\n\r\n    function ajouterCharbon(uint256 quantite) public {\r\n        require(quantite > 0, \"La quantite doit etre positive\");\r\n        stockCoal += quantite;\r\n        emit addCoal(quantite, stockCoal);\r\n    }\r\n}\r\n"
+      }
+    }
+  }
+}

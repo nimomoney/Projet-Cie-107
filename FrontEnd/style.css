@@ -94,7 +94,24 @@ button:active {
     transform: translateY(4px);
 }
 
-#ajouterStock {
+/* Aligner les boutons côte à côte dans le conteneur .button-row */
+.button-row {
+    display: flex;
+    gap: 38px;
+    margin-top: 10px;
+}
+
+.button-row button {
+    display: inline-block;
+    margin-top: 0;
+}
+
+#ajouterStockIron {
+    background-color: #2e7d32;
+    /* Vert production */
+}
+
+#ajouterStockCoal {
     background-color: #2e7d32;
     /* Vert production */
 }
