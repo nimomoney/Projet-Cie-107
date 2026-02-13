@@ -1,0 +1,16 @@
+services:
+  node:
+    image: node:24-alpine
+    working_dir: /hardhat
+    volumes:
+      - ./:/hardhat
+    ports:
+      - "8545:8545"
+    command: npx hardhat node --hostname 0.0.0.0
+
+  install:
+    image: node:24-alpine
+    working_dir: /hardhat
+    volumes:
+      - .:/hardhat
+    command: ./install.sh
