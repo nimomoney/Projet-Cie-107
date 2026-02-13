@@ -8,6 +8,7 @@ if (typeof window.ethereum === 'undefined') {
 const provider = new ethers.BrowserProvider(window.ethereum)
 const signer = await provider.getSigner()
 const contract = new ethers.Contract(address, abi, signer)
+window.contract = contract; // Expose le contrat pour le débogage
 
 contract.on("addIron", (quantite, nouveauStock) => {
     document.querySelector('#ferStock').textContent = nouveauStock;
@@ -17,6 +18,11 @@ contract.on("addIron", (quantite, nouveauStock) => {
 contract.on("addCoal", (quantite, nouveauStock) => {
     document.querySelector('#charbonStock').textContent = nouveauStock;
     console.log("L'usine a reçu " + quantite + " kg de charbon !");
+});
+
+contract.on("Melted", (nombreLingots, nouveauStockMelted) => {
+    document.querySelector('#lingotStock').textContent = nouveauStockMelted;
+    console.log("La fonderie a produit " + nombreLingots + " lingots !");
 });
 
 document.querySelector('#ajouterStockIron').addEventListener('click', async () => {
@@ -29,3 +35,23 @@ document.querySelector('#ajouterStockCoal').addEventListener('click', async () =
     await contract.ajouterCharbon(quantite);
     document.querySelector('#charbonInput').value = '';
 });
+// Handler pour lancer la fonderie (créer des lingots)
+document.querySelector('#lancerFonderie').addEventListener('click', async () => {
+    const nombre = parseInt(document.querySelector('#nbLingots').value);
+    if (!Number.isInteger(nombre) || nombre <= 0) {
+        document.querySelector('#message').textContent = 'Entrez un nombre entier positif de lingots.';
+        return;
+    }
+    try {
+        const tx = await contract.meltIron(nombre);
+        await tx.wait();
+        document.querySelector('#nbLingots').value = '';
+        document.querySelector('#message').textContent = 'Fonderie lancée : tx envoyée.';
+    } catch (err) {
+        // Affiche le message d'erreur si disponible
+        const reason = err.reason || err.message || JSON.stringify(err);
+        document.querySelector('#message').textContent = reason;
+        console.error(err);
+    }
+});
+
