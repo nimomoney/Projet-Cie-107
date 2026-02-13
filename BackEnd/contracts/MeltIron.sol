@@ -2,9 +2,9 @@
 pragma solidity ^0.8.0;
 
 contract MeltIron {
-    uint256 stockIron;
-    uint256 stockCoal;
-    uint256 stockMeltedIron;
+    uint256 public stockIron;
+    uint256 public stockCoal;
+    uint256 public stockMeltedIron;
 
     event addIron(uint256 quantite, uint256 nouveauStock);
     event addCoal(uint256 quantite, uint256 nouveauStock);
