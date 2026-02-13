@@ -1,0 +1,113 @@
+/* Importation d'une police un peu technique/industrielle */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap');
+
+body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    font-family: 'Roboto Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #ff9800;
+    /* Orange industriel */
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #444;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* Containers principaux */
+#stocks,
+#ajout,
+#fonderie {
+    background: linear-gradient(145deg, #232323, #2a2a2a);
+    border: 3px solid #444;
+    border-left: 8px solid #ff9800;
+    /* Rappel de sécurité */
+    border-radius: 4px;
+    padding: 20px;
+    margin: 15px;
+    width: 350px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Affichage des stocks */
+#stocks div {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+#stocks span {
+    color: #00ffcc;
+    /* Cyan néon pour les chiffres */
+    font-weight: bold;
+}
+
+/* Inputs et Champs de saisie */
+input[type="number"] {
+    background-color: #333;
+    border: 2px solid #555;
+    color: #fff;
+    padding: 8px;
+    width: 120px;
+    margin: 5px 0;
+    border-radius: 2px;
+    outline: none;
+}
+
+input[type="number"]:focus {
+    border-color: #ff9800;
+}
+
+/* Boutons style "Machine" */
+button {
+    background-color: #444;
+    color: white;
+    border: none;
+    border-bottom: 4px solid #222;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.1s;
+    display: block;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+button:active {
+    border-bottom: 0px solid #222;
+    transform: translateY(4px);
+}
+
+#ajouterStock {
+    background-color: #2e7d32;
+    /* Vert production */
+}
+
+#lancerFonderie {
+    background-color: #c62828;
+    /* Rouge fonderie/chaleur */
+}
+
+/* Message d'info */
+#message {
+    margin-top: 20px;
+    font-style: italic;
+    color: #bbb;
+    min-height: 1.2em;
+}
